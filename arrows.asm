@@ -125,7 +125,7 @@ MaybeSystemVariables:
 ;----see if the up or down arrows were pressed
 
 VisibleSoHandleKeys:
-	moveq		#32,d2			;increment or decrement
+	moveq		#20,d2			;increment or decrement
 	move.w	#$700,d3			;idle event
 	lea		listBufferIndex(pc),a0	;get pointer to the value to be modified 
 	move.w	(a0),d1
@@ -148,7 +148,7 @@ VisibleSoHandleKeys:
 
 	move.w	d3,(a2)
 	move.l	ptr(pc),a1
-	tst.l		32(a1,d1)			;is the first adress of the next page a zero?
+	tst.l		20(a1,d1)			;is the first adress of the next page a zero?
 	bne		CanScroll
 	tst.w		d1				;are we already on the first page
 	beq		CanNotScroll

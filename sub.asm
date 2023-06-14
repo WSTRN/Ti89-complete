@@ -473,7 +473,7 @@ RemoveMenu:
 	moveq		#58,d0
 	move.w	mode(pc),d1
 	beq		LeaveAt58
-	moveq		#52,d0
+	moveq		#76,d0
 LeaveAt58:
 	move.l	windowPointer(pc),a1
 	move.l	ptr(pc),a0

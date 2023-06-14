@@ -118,7 +118,7 @@ StillShowMenu:
 	beq		LeaveA1Alone
 
  ifd ti89
-	lea		LCD_MEM+30*26,a1
+	lea		LCD_MEM+60,a1
  endc
 
  ifd ti92plus
@@ -138,7 +138,7 @@ LeaveA1Alone:
 	moveq		#58,d3
 	tst.w		d6
 	beq		LeavD3Alone
-	moveq		#52,d3
+	moveq		#76,d3
 LeavD3Alone:
 
 BackupLoop:
@@ -180,7 +180,7 @@ SkipBackup:
 	moveq		#56,d3			;counter
 	tst.w		d6
 	beq		LeaveD3Alone2
-	moveq		#50,d3
+	moveq		#74,d3
 LeaveD3Alone2:
 DrawMostOfIt:
 	move.b	d1,(a1)+			;make the left border
@@ -225,7 +225,7 @@ DrawMostOfIt:
 	tst.w		d6
 	beq		LeaveA0Alone3
  ifd ti89
-	lea		LCD_MEM+30*36,a0
+	lea		LCD_MEM+30*12,a0
  endc
 
  ifd ti92plus
@@ -287,7 +287,7 @@ NoTruncating:
 	beq		LeaveYAlone
 
  ifd ti89
-	move.w	#28,(a7)
+	move.w	#4,(a7)
  endc
 
  ifd ti92plus
@@ -340,7 +340,7 @@ NoRightArrow:
 	moveq		#8,d4
 
  ifd ti89
-	move.w	#38,(a7)
+	move.w	#14,(a7)
  endc
 
  ifd ti92plus
@@ -349,7 +349,7 @@ NoRightArrow:
 
 LeaveYAlone2:
 	move.w	d5,-(a7)			;x
-	moveq		#4,d7				;counter - function keys
+	moveq		#7,d7				;counter - function keys
 DrawFunctionKeyLoop:
 	jsr		(a5)				;display it
 	add.w		d4,2(a7)			;alter y
@@ -375,7 +375,7 @@ DrawFunctionKeyLoop:
 	beq		LeaveYAlone3
 
  ifd ti89
-	move.w	#38,(a7)
+	move.w	#14,(a7)
  endc
 
  ifd ti92plus
@@ -401,7 +401,7 @@ NoUpArrowNeeded:
 	bne		hop45
 	subq.w	#2,(a7)
 hop45
-	moveq		#4,d7
+	moveq		#7,d7
 DrawOptionLoop:
 	move.l	(a3)+,d0
 	beq.s		DoneDrawingMenu

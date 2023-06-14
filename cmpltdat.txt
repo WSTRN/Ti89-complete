@@ -1,0 +1,128 @@
+Cmpltdat By Samuel Stearley Copywrite 2001-05
+email:  samuel@stearley.org
+homepage:  http://www.stearley.org
+______________________________________________________
+
+
+
+
+
+INTRODUCTION:
+_____________________________________________________
+This program contains the databases of complete that
+use to be internal.  They are made external so that
+you can archive them and save ram memory space.
+
+Also if you execute this program you can change
+the settings of complete.  In order for the settings
+to be remembered the program cmpltdat must not be
+archived.  It does not matter if complete is archived.
+
+Once you have the settings set the way you want then
+you can archive cmpltdat.
+
+
+
+
+
+SETTINGS:
+____________________________________________________
+The text shown is the current setting, not what
+pressing the corresponding key changes the setting
+to.
+
+Press escape to exit.
+
+
+-MENU SIZE-
+	Press 1 to toggle the size of the menu between
+	small and large.  The default is large.
+
+
+-MENU MOVEMENT-
+	By default once the menu is displayed it no
+	longer moves around with the cursor.  Use
+	this option to make it move around with the
+	cursor.
+
+	Personally I find having the menu move with
+	the cursor distracting.  Also it will slow things
+	down a little bit because it has to restore part of
+	the screen and then backup the new part of the screen
+	whenever something is typed.  But not that you will
+	notice the speed decrease.
+
+
+-_XTRAST1 USAGE-
+	If you never use the external database _xtrast1
+	then use this option to disable it.  By default
+	it will be set.  This will speed things up a
+	little bit.  But not that you will notice the
+	speed increase.
+
+	This option is for those of you who are paranoid
+	about battery usage.
+
+
+-SET RIGHT KEY-
+	The 'right' key is the key that scrolls the unit
+	menu right and changes a normal menu to a menu
+	containing only folders and variables.  If you
+	want you can change the key that performs these
+	two actions to any key you want.
+
+	The advantage to doing this is that by changing
+	this key to something like [catalog] you can use
+	the right arrow key to move the cursor.
+
+	This will affect the unit menu, but not the replacement
+	of tios's unit menu.
+
+	To use this option press 4 and then it will prompt you
+	to enter a key.  Do so, this key now performs the
+	'right' key response.
+
+	Remember [apps] is used in the unit menu to get a listing
+	of shortcuts so do not use [apps].
+
+	It does no checking of the key you choose.  If you want
+	you could make this key be f1, but that would be stupid.
+
+
+-SET MUCH RIGHT KEY-
+	This is the key that makes the unit menu scroll right
+	skipping the unit types that have been printed in the
+	help line.
+
+
+-SET LEFT KEY-
+	This is the key that scrolls the unit menu left and
+	results in a menu of system variables.
+
+
+-EXTERNAL DATABASES USE _-
+	All of complete's external databases start with an
+	underscore.  The advantage to this is that they can
+	then be placed into a fake unit menu that has all of
+	complete's external data base names.
+
+	The disadvantage to this is that tios does not let
+	variables that start with an underscore to be archived.
+	So this option lets you change the naming convention.
+
+	So '_xtrast1' becomes 'xtrast1'.  However the external
+	data base names will still be stored with the underscore.
+	So you will still have to type the underscore, pick the
+	external data base name you want, move the cursor to the
+	leading underscore and then delete it.
+
+
+
+
+
+LEGAL:
+___________________________________________________
+-Samuel Stearley is not responsible for anything
+ that might happen from using it.
+-This program may only be distributed with complete
+ in the complete.zip package.

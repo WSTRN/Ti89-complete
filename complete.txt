@@ -1,0 +1,894 @@
+Complete by Samuel Stearley
+Copyright 2001-05
+r10
+
+Homepage: http://www.nyall.net
+	    http://www.stearley.org
+_____________________________________________________________________
+This program is designed extensively to aid in the typing of valid
+expressions into the home entry line.  And it absolutely kills at
+this.  It is not designed to aid in the typing of sentences, ect.
+
+It is also my interface to variables and programs: my own personal
+shell.
+
+
+
+
+
+INTRODUCTION:
+_________________________________________________________________
+This program is an event hook.  It will monitor what you type
+into the entry line and in the form of a menu it will offer
+suggestions as to how the stuff typed in can be completed.
+
+For example if you type in the lower case "a" character
+the user will receive a menu with the following options:
+
+	1: abs(
+	2: ans(
+	3: and			<-There is an unseen space after
+	4: approx(			  the and.
+	5: arcLen(
+	6: avgRC(
+	7: augment(
+	8: angle(			<-There will be a down arrow because
+					  the user can scroll the menu to
+					  receive more options.
+
+
+The 1, 2, 3, ect refer to f1, f2, f3, not the number keys.
+
+If after the "a" you typed an "n" then you would receive a
+menu with the following:
+
+	1: ans(
+	2: and
+	3: angle(
+
+
+If it tries to do a menu with only 1 item in it then instead the
+text will be pasted and highlighted like with internet explorer
+and the other auto completion tsr Ash.
+
+It also offers suggestions as to how names of variables and folders
+can be auto finished.  If you auto finish a name of a folder then
+it will assume the next thing that you want to type in is the name
+of a file in that folder so you will instantly receive a menu with
+the names of all variables in that folder.  And it will only give
+completion suggestions of the variables in that folder.
+
+And something that I really hate about tios is the unit menu.
+If I wanted to do force conversions I would  A)Have to wade
+through the unit menu to the listing of force units.  B)Select
+a unit to convert from.  C)And then I would have to wade
+through the unit menu all over again to get back to the force
+units to find the unit to convert to.
+
+I have solved this in Complete.  It will remember the type of
+unit that was last in the title bar.  The unit menu is activated
+by the "_" character.  And if the unit menu is visible the
+parts of the next 6 unit titles (as you scroll right) will be
+displayed in the status line so that you can see what is upcoming
+and be able to bypass them by pressing 2nd+right if you do not
+want any of them.
+
+In addition, Complete provides an outright replacement for the
+unit menu which is available from all apps.  See documentation
+somewhere below.
+
+
+
+
+
+INSTALLATION:
+___________________________________________________________
+Send the program to your calc and run it.  It will then
+be installed.  It has been tested on ams versions 1.00,
+2.03, and 2.05 on vti.  And on my 2.05 (used to be 2.03)
+HW1 calculator.  Once installed you can delete it from
+your calc, but you will need to install again after a
+reset or if the calc crashes.
+
+You will also need to have the file cmpltdat on your calculatore.
+The internal databases are now external.
+
+If you have a HW2 calculator with an AMS versions greater
+than 1.05 you will need to install h220xTsr by Kevin Kofler
+before Complete if you have not used the HW2 patch.  You
+can get it from ticalc.org or from Kevin Kofler's website
+(see his event hook uninstaller read me included in this
+zip file.)
+
+An exepacked version of Complete is also included.  If you
+wish to use it you will need the program ttstart.  The .89z
+version of Complete is NOT the launcher for the exepacked
+version. 
+
+I consider it silly for there to be hundreds of custom exepact
+launchers floating around when it is much smaller to make one
+basic program that launches the compressed program with ttstart.
+
+
+
+
+
+UNINSTALLATION:
+____________________________________________________________
+To uninstall Complete (why uninstall it?), use the included
+event hook uninstaller by Kevin Kofler.  If you are not
+already familiar with the uninstaller then be sure to read
+the event hook uninstaller documentation included and know
+that it has it's own license.
+
+
+
+
+
+KEY USAGE WHEN THE MENU IS VISIBLE:
+____________________________________________________________
+The idea is simple: the user types letters of commands
+and will receive back a menu of how the command could
+be completed.  If you look at the menu you will see a
+function key in front of each option.  Pressing the
+function key causes the text behind it to be pasted to
+the entry line.
+
+Though really you will have to play around with it
+to get the feeling of it.
+
+
+
+
+	HOW THE FUNCTION KEYS WORK:
+	___________________________________________________
+	If the menu is visible then it pastes the
+	corresponding text into the entry line.
+
+	If you press a function key that has no corresponding
+	text nothing will happen.
+
+	If the menu is not visible (such as by pressing
+	escape) then the function keys will drive the
+	home screen toolbar.
+
+
+
+	HOW DIAMOND + FUNCTION KEYS WORK:
+	___________________________________________________
+	Diamond + function keys will only work for f1-f5
+	on the 89.  And While the menu is visible they will
+	override the existing diamond + Function key results.
+
+	So what does it do?  If the corresponding string is
+	a variable name then that string is set as the
+	current folder, the part of the folder name that you
+	had already partially typed is deleted, and you instantly
+	receive a menu of all the variables in the new current
+	folder.
+
+	It is supposed to be like pressing a function key
+	with a folder associated with it in the famous RPN
+	program for the 89 (download area of sq.calc.org)
+	or the 49g.
+
+
+
+	HOW THE UP AND DOWN ARROWS WORK:
+	___________________________________________________
+	If the menu is visible then it will scroll
+	through up to 12 pages of possible options to
+	paste.
+
+	If you can scroll up then an upward pointing arrow
+	is in place of the 1 of the "F1:" label.  And if
+	the menu can be scrolled down then a downward
+	pointing arrow is in place of the 8 of the "F8:"
+	label.
+
+	When scrolling up and down the menu will wrap.  The
+	arrows do not depict this however.
+
+
+
+	HOW THE "_" CHARACTER WORKS:
+	___________________________________________________
+	If this is the first character of a variable name
+	then it activates the unit menu.
+
+
+
+	HOW THE OTHER CHARACTERS WORK:
+	___________________________________________________
+	If a character is typed it does searching and if
+	any possible matches are found then the menu is
+	displayed with those matches.  The "_" character
+	has special functionality.
+
+	If no matches are found then the menu is gotten rid
+	of, if it was already displayed.  And entire matches
+	are ignored.
+
+	Typing more characters will narrow down the search
+	to strings starting with only those chars.
+
+
+
+	HOW RIGHT AND LEFT WORK:
+	____________________________________________________
+	If a unit menu is active then it scrolls between
+	the different types of units like distance and speed.
+	If you scroll past the last unit menu (which actually
+	contains no units) then it wraps to the first unit
+	type.
+
+	If a normal menu is available then these keys will
+	move between 3 "pages."  The default page has stuff
+	from the external databases, folder names and names of
+	variables in current folder.
+
+	From this page if you press right then you get a
+	listing of just the names of folders and names of
+	variables in the current folder.  Pressing left
+	will take you to the listing of system variables.
+
+	From these two pages you can use the arrows to go back
+	to the default page and from there to the other page.
+
+	If you can press right to get just the folders and
+	variables listed, then a right arrow will be printed
+	in the title bar.
+
+
+
+	HOW BACKSPACE WORKS:
+	___________________________________________________
+	Backspace will remove the last letter entered and
+	will un-narrow the search.  If all letters are taken
+	away from the command being entered then the menu
+	will disappear.
+
+
+
+	2ND + Right
+	___________________________________________________
+	This only has functionality during a unit menu. It
+	causes the menu to scroll right 7 times to bypass
+	the unit titles that have been printed in the status
+	line.  If you go too far right it will wrap around.
+
+	If this combo is pressed during the the normal menu
+	it will be treated like any other key.
+
+
+
+	DIAMOND + SPACE:
+	___________________________________________________
+	This only has functionality on the 92+.  It makes
+	diamond + space = Right Arrow.  Why is this useful?
+	If you have text pasted and highlighted and you want
+	to keep the highlighted text then you need to press
+	the right arrow.  Or if the menu is visible and you
+	want only variables to be listed then you can press
+	diamond + space instead of the right arrow.
+
+	So you do not have to stretch your hand up to the
+	arrow.
+
+	If the menu is visible then diamond + space is equal
+	to the key that you assigned to be the right key with
+	cmpltdat.
+
+	If the menu is not visible then diamond + space will
+	always be the right arrow key, regardless of the setting
+	in cmpltdat.
+
+
+
+	HOW ANY OF THE OTHER KEYS WORK:
+	____________________________________________________
+	If any of the other keys are pressed it assumes that
+	the user is no longer interested in the command that
+	is being typed so my menu will disappear.
+
+	My menu will come back up when the user starts to
+	type again.
+
+
+
+
+KEY USAGE WHEN MENU IS NOT VISIBLE:
+________________________________________________________________
+Diamond + space is still equivalent to the right arrow on the
+92+ whether or not the menu is visible.  These key combos are
+used to provide even quicker access to variables.
+
+
+
+	HOW 2ND + DOWN WORKS:
+	____________________________________________________
+	It results in an instant menu of all system
+	variables.  From this menu you can scroll right to
+	the menu of commands and from the menu of commands
+	to the menu	with only folders and variables.
+
+	There is sort of a bug in complete here:  If you
+	change to the menu with only commands in it, there
+	will be no right arrow in the title indicating that
+	the menu can be scrolled right to the folders and
+	variables.
+
+
+
+	HOW DOWN WORKS:
+	______________________________________________________
+	It will result in an instant menu containing all
+	variables in the current folder.
+
+
+
+	2ND + UP:
+	_______________________________________________________
+	This is like the up directory key on my 49g.  All it
+	does is make the current folder: main\
+
+
+
+
+
+FOLDERS/VARIABLES SUPPORT:
+______________________________________________________________
+Complete will also offer suggestions for folders and other
+variable names.  These suggestions will be listed last
+after the other suggestions.  Folder suggestions will be
+listed before variable suggestions.  To instantly skip to
+the folders and variables just press the right arrow.  This
+key can be changed with the use of cmpltdat.89z
+
+Folders will have a '\' after them and programs (basic and
+assembly) will have a '(' after them.  Other file types
+will have a letter after them which tells you their file
+type, this letter will not be pasted.  Also assembly and
+basic programs do not have a letter after them; this is
+deliberate.
+
+	Letter	File Type
+	_____________________________
+	E		Expression
+	S		String
+	D		Data
+	L		List
+	M(up case)	Matrix
+	m(low case)	Macro, although only the 92+ has this
+	G		Graph Database
+	P		Picture
+	T		Text
+	F		Figure, again it is the 92+ that has this.
+	O		Other
+
+
+Complete also has special behavior with folders.  If you auto complete
+a folder name then you instantly get a menu with only variables in
+that folder.  And if you type stuff behind a folder name already in
+the entry line (not necessarily an auto completed folder name) then
+complete will only give you suggestions of variables in that folder.
+See examples in "things to try.txt"
+
+
+
+
+
+UNIT SUPPORT:
+______________________________________________________________
+As noted above, if a variable is STARTED with an underscore
+then the unit menu is active.  The unit menu is just like
+a normal menu except that the unit type is printed in the
+title line AND the right and left arrows change the unit
+type.  In addition to the unit menu there is an outright
+replacement for tios's unit menu that you get by pressing 2nd+
+units.
+
+The partial titles of the next six menu titles are printed
+in the help line.  If you do not see the unit type you
+want press 2nd + right to bypass all of them.  When you do
+see the unit type you want then use the right arrow to
+scroll to it.
+
+The last three unit menus as you scroll right are "fake."
+The first "fake" unit menu contains the names of complete's
+variables.  The 2nd "fake" unit menu will have all the
+variables in the vat that start with an underscore.  The
+third will have external strings from the external database
+_xtrast1, but not from _xtrast2.
+
+If you continue to type stuff after the underscore, and
+complete can not find a match in the current unit type, then
+complete will repeatedly change the unit type till a match
+is found or it exhausts all the unit types.  Automatic
+changing of the unit type is the same as if you had manually
+scrolled right.  If you manually change the unit type with
+the arrows it skips the unit types for which there are no
+matches.  The result of this could be circular:
+
+	E.G. type "_x" and the fake unit menu that has Complete's
+	variables in it will be visible.  Then try to scroll right
+	or left, there are no matches in any other unit type and
+	the result is that it comes right back to the unit menu
+	containg complete's variables.
+
+	E.G. type "_c" then use the arrows to scroll and it will
+	only scroll to the unit types that have a match for the
+	"_c".  This is an example where it is not circular.
+
+The constants unit menu contains extra text to help remember what
+each constant is.  The 49g has this in it's constant library, which
+is full screen, so the extra text is not abbreviated like it is in
+complete.
+
+The shortcuts provided in the replacement of tios's unit menu are
+available during the unit menu: press apps to get the listing of
+shortcuts and then press the corresponding shortcut key.  F1-f8 do
+not jump you to the unit type behind them.  And if you press a non-
+shortcut key then the menu will revert back to the previous unit type.
+
+
+
+
+
+SYSTEM VARIABLE SUPPORT:
+_______________________________________________________________
+The system variable support is designed so that the user has
+quick access to the system variables, without the system
+variables actually being in the main menu.
+
+If the system variables appeared in the main menu there would
+be too many objects in the menu, so it would feel cramped and
+I would not like that.  (If you the user want a system variable
+to appear in the main menu then put it in an external database,
+which are described below.)
+
+So to get a listing of the system variables that can be auto
+completed, (based on what you already have typed in) merely
+press the left arrow.  To go back to the normal menu press
+the right arrow.
+
+Statistic system variables will be proceeded by an S character
+to denote that they are a statistics variable.
+
+Also if you type some characters and a match can not be found
+in the usual places for the normal menu, then it will
+automatically try to find a system variable match.  For example
+if you type a 'z' you would probably have a menu with 'zeroes('.
+Then if you type a 't' it would give you a menu of 7 system
+variables starting with 'zt' (assuming that there are no
+variables, folders, or user defined strings that start with 'zt')
+
+There is also an external database whose objects only appear
+in the system variable menu.  This database is called:
+'_sysext'  If you want access to some strings, but not so much
+access that they clutter the main menu, then I suggest you put
+such strings in here.
+
+If you press 2nd + down in the entry line you will recieve a
+menu of all system variables, the statistics system variables
+will be listed first.
+
+And in addition to having units, the unit menu replacement will
+also have system variables, again the statistics variables will
+be listed first. 
+
+
+
+
+
+FLASH APP SUPPORT:
+________________________________________________________________
+Flash apps export functions using the following notation:
+
+ nameOfFlashApp.exportedFunction()
+
+This notation is similar to how variables are referenced.  The
+name of the flash app is like a folder, the "." is like a "\"
+and the exported function is like a variable name.
+
+Support of flash apps functions is made to be similar to the
+support of variables in the non-current folders.  First type
+the name of the flashapp, (Of course typing could mean auto
+completing) then type the ".",  you will now get a menu of
+functions exported by the app.  Look for the function you want
+or type more chars to narrow the search.
+
+The data of the exported functions with each app is in an external
+database.  The name of that external database must be the same
+as the application name that is typed before the function name.
+External databases are explained below.
+
+I also suggest that you read the example in "things to try.txt"
+
+
+If you did the following from the home entry line:
+
+ {"utah","michigan","missouri","Illinois"}->us
+
+You will have created an external database.
+
+And if you cleared everything out of the entry line and then typed
+"us." then you would have a menu suggesting "Illinois", "Missouri",
+"Michigan", and "Utah".  So basically typing a "." after the name of
+an external database results in a menu of all the items in that
+external database.
+
+
+Lucky for you this distribution includes external data bases made for
+the finance, statistics, polynomial root finder applications, and the
+calctools "concept" application.
+
+
+
+
+
+UNIT MENU REPLACEMENT:
+________________________________________________________________
+Complete now provides a replacement for the tios unit menu.
+This new unit menu works just like the unit menu that you
+receive from Complete when you type an "_"
+
+But this unit menu replacement is available from all tios
+applications, not just the home app.
+
+If you wish to get rid of it press escape.  F1-F8 will select
+the corresponding text.  Up and down scroll; left and right
+scroll the unit types.
+
+It will not look for user defined units, but it will add items
+from the external databases.
+
+And there are two fake unit menus at the end:  One contains
+the names of complete's variables.  The other has the names
+of system variables.
+
+There are shortcuts to skip around to different unit types.
+If you can not remember them then press apps from the unit menu
+replacement to have the shortcuts listed, from this listing you
+can press a shortcut to jump to a unit type,  press up or down
+to scroll this listing, anything else and it goes back to a menu
+of the previous unit type.  Here they are:
+
+
+	Obvious Shortcuts:
+	_____________________________________
+	c.....Constants
+	l.....Length
+	a.....Area
+	v.....Volume
+	t.....Time
+	m.....Mass
+	f.....Force
+	e.....Energy
+	p.....Power
+	r.....Resistance
+
+
+
+	Semi Obvious Shortcuts:
+	_______________________________________________________
+	k.....Viscosity, Kinematic: 	Think k for kinematic
+	d.....Viscosity, Dynamic:	Think d for dynamic
+	i.....Current:			In equations current is refered to as I
+	s.....Conducance:			Think s for siemens
+	g.....Magnetic Flux Density:	Think g for gauss
+	w.....Magnetic flus:		Think w for weber
+	x.....External variables:	Think x for _xtrast1
+	n.....Amount of substance	N is often used for this like in the ideal
+						gas law: p*v=n*r*t
+	q.....Charge:			Q is used as charge in equations
+
+
+
+	Non Obvious Shortcuts:
+	________________________________________
+	y.....System Variables
+	z.....Velocity
+	^.....Acceleration: The carrot sort of looks like an A
+	b.....temperature
+	j.....Luminous intensity
+	o.....Pressure	
+	u.....Potential
+
+	space.....Capacitance
+	enter.....Magnetic field Strength
+	home......Inductance on 89
+	=.........Inductance on the 92+
+
+
+
+
+
+USER DEFINED STRINGS:
+________________________________________________________________
+It is easy for the user to define custom strings that they
+want to appear in the menu.
+
+Note that all external databases must be in the main folder.
+
+The custom strings are kept in a list variables called "_xtrast1"
+and "_xtrast2".  The elements will be the strings.  Here is an
+example:
+
+ {"sma()","bill()","jack","samuel","{x,y}"} -> _xtrast1
+
+
+Internally the above string is stored as:
+
+ {"{x,y}","samuel","jack","bill()","sma()"}
+
+
+So if you type an s, "samuel" will be printed before "sma()" in
+the menu but if you want "sma()" to be before "samuel" then you
+will have to reverse the relative positions "samuel" and "sma()"
+are in the list.
+
+Important:	Only put strings as each element.  And do not forget
+		quotes.  And you can not have external strings that
+		start with a number, '.', '\' or the degree character.
+		They simply will not be recognized.
+
+Also if there is a ':' in the string then complete behaves as
+though everything after it does not exist.  However the text after
+the ":" will still be printed in the menu.  For example "Sam:Knife"
+behaves like it is just "Sam".  See the constants unit menu. In fact
+if you auto complete some string then complete will print in the help
+line the stuff after the ':' character.  All spaces immediately after
+the ':' char will not be printed in the help.
+
+The help string must be more than 1 char long else it will not be
+printed.
+
+NOTE: to have help printed in the help line the ':' character must be
+within the first 39 characters.
+
+
+You can also have an external database for each unit type.  Each external
+database for each type of unit has it's own name.  So first type the "_".
+Then the unit menu will appear.  It would be silly to memorize these
+names or always needing to look in this text file for the names, so the
+last unit menu is fake and does not have units in it, instead it has all
+the variable names.  Very nice see?
+
+Left/right wrapping has been implemented so to get to this menu from the
+initial unit menu of constants you only have to press the left arrow three
+times.  You must not forget the '_' character at the beginning of each
+string in the list, otherwise they will not be found as a match for the
+unit that you are typing.
+
+
+	Variable Name		Unit Type/Menu It Is Associated With
+	______________________________________________________________
+	_xtrast1................Not associated with a unit type.
+					Items are placed in the normal menu
+					before the default strings.
+	_xtrast2................Not associated with a unit type.
+					Items are placed in the normal menu
+					after the default strings.
+	_sysext.................Not associated with a unit type.
+					Items are placed in a the system
+					variable menu after the default
+					system variable strings.
+	_cnstant................Constants
+	_earthcn................Earth Constants
+	_length.................Length
+	_area...................Area
+	_volume.................Volume
+	_time...................Time
+	_veloc..................Velocity
+	_accel..................Acceleration
+	_temp...................Temperature
+	_linten.................Luminous Intensity
+	_amount.................Amount of Substance
+	_mass...................Mass
+	_force..................Force
+	_energy.................Energy
+	_power..................Power
+	_press..................Pressure
+	_viscok.................Viscosity, Kinematic
+	_viscod.................Viscosity, Dynamic
+	_freq...................Frequency
+	_ecurent................Electric Current
+	_charge.................Charge
+	_poten..................Potential
+	_resist.................Resistance
+	_conduct................Conductance
+	_capacit................Capacitance
+	_magfstr................Magnetic Field Strength
+	_magflxd................Magnetic Flux Density
+	_magflux................Magnetic Flux
+	_induct.................Inductance
+
+
+
+
+
+ORDERING OF THE MATCHES:
+_________________________________________________________________
+The matches will be presented in the following order:
+
+-Matches from the external database: _xtrast1.
+-Matches from the default database: cmpltdat.
+-Matches from the external database: _xtrast2.
+-Folder names.
+-Names of variables in the current folder.
+
+If no matches are found in these five places then it looks
+through the default database of system variables.
+
+If you want to instantly have a list of folders followed by
+variables then press the right arrow.  If you want to go back
+to the commands then press the left arrow.
+
+And if a unit menu is visible then just the units are displayed
+followed by the custom units of that particular unit menu.
+
+
+
+
+
+KNOWN "BUGS", QUIRKS, AND TAKING ADVANTAGE OF THOSE QUIRKS:
+________________________________________________________________
+-In the unit menu replacement I did not provide a shortcut
+ to the earth constants.
+
+-Complete will not paste more than 39 characters at once.
+ This does not mean that strings in the external database
+ are limited to 39 characters.  You can still have extra
+ characters behind the ':' that you wish to be printed in
+ the help line.
+
+ And though it will paste no more than 39 characters, if you do
+ not choose the string you want within the typing the first 8
+ characters of it, complete will stop trying to give sugestions.
+ Complete is only intended to aid in the typing of expression,
+ nothing more.
+
+-Do not expect complete to function correctly with char(1).
+
+-If Complete does a search and finds no matches the menu will
+ be removed.  This is very logical but suppose you had a menu of
+ commands starting with "z", and pressed right to get only the
+ folders and variables that started with "z".  If there are no
+ variables that start with "z" there will be no matches and thus
+ the menu will disappear.
+
+-Entire matches will not be given as an option.
+
+-It will prevent user strings from being wider than the menu but
+ it does this calculation based on the number of characters, not
+ the actual width (remember small font is proportional) so even
+ if there is still room to display a string, it might still be
+ truncated and ellipses will be appended.
+
+-If no menu is visible when a key is pressed complete will gather
+ characters between the cursor and the first "separation
+ character" that comes before the cursor.  If there are more than
+ 8 characters between the cursor and the "separation character"
+ then complete will not bother to give any suggestions.
+
+ Separation characters are characters which commands can possibly
+ come after.  Here are the easily typed ones:
+
+	"{}()[]+-/*= ,'%&#!;:
+
+ Tios treats stuff after pi, e, i, and infinity as implied multiplication
+ so I made them separation characters.  The unit conversion character by
+ itself is an operator like '+' so I made it a separation character.
+
+-It is possible to have an item in an external file start with one
+ of these separation characters.  For example if you had "{x,y}"
+ in _xtrast1 and you had typed: "solve(8x=y and y=x^3,{" then you
+ would have a menu with {x,y} in it regardless of the "{" being one
+ of those separation characters.
+
+ Another example of this are the default strings that start with the
+ conversion character.  If you type it then you get a menu suggesting
+ the different conversions.  If you then typed an underscore the menu
+ changes to contain units.  If the conversion char was not a separation
+ character then it would search for ">_" and no unit results would be
+ found.  And you want units because obviously you are doing a conversion.
+
+-It does not do the automatic paste and highlight thing if the one
+ item is a unit menu, the one thing in the menu is a name of a folder,
+ backspace was just pressed, or only one character has been entered (so
+ if you type x you probably only want to use it as a variable and not
+ have "xor ")  This is deliberate.
+
+
+-When it does initial processing, like looking for a separation
+ character before the cursor, it does not consider the characters
+ after the cursor.  I think this is good, because then it will
+ give completion suggestions for commands that you might be trying
+ to insert.
+
+-It will not offer completion suggestions for strings starting with
+ numbers.
+
+
+
+
+
+FUTURE PLANS:
+_________________________________________________________________
+I have decided not to add functionality with other apps:  There
+is too much dependency on the home text edit structure.
+
+User defined unit types.
+
+Better support for other file extensions.
+
+I am also thinking that F of the function key labels before each
+string in the pop up is unnecessary so I might get rid of them.
+
+Maybe a replacement for tios's recall box.
+
+
+
+
+
+CONTACTING THE AUTHOR:
+_________________________________________________________________
+I can be contacted by email at samuel@nyall.net  When
+reporting bugs first download the latest version of complete
+from my homepage: http://www.nyall.net and see if the
+bug still exists.
+
+Please be very specific as to your rom version, kernel, kernel
+version, hardware version, other event hooks installed, and
+whether or not you have the Hardware II patch installed.  If you
+can try to reproduce the error with no kernel or any other event
+hooks installed.  And please give a detailed description of what
+happened.
+
+Also I have ordered the strings so that the most commonly used
+come first and the user does not have to scroll to get what he/she
+wants.  If you think I did not do a good job of this then please
+give me suggestions as to how it can be improved.
+
+And If you think that complete is the greatest thing since sliced
+bread then I would be glad to hear it.
+
+
+
+
+
+THE FINE PRINT:
+___________________________________________________________________
+Complete may be distributed without permission as long as no profit
+  is made off of that distribution.  If profit is being made on
+  such a distribution then my permission is needed.  This includes
+  but is not limited to CDs, floppies, and downloads off of an
+  internet or ftp site.
+Complete may not be distributed as part of another package without
+  permission.
+Do not separate the files in this zip archive or distribute a
+  modified version of this zip archive.
+I am not responsible for any crash, damage to calculator, or
+  loss of data that might result from the use of complete.
+The code is open source and if you borrow from it then give me
+  some credit it your read me.
+
+
+
+
+
+THANKS:
+__________________________________________________________________
+Gareth James for his docs.
+
+Zelko Juric for his tigcc docs.
+
+Kevin Kofler for his auto close bracket code, setting event hook
+standards, the event hook uninstaller, for pointing out some bugs
+I forgot to check for and a couple suggestions he gave me.  And the
+hw detection code.
+
+Thomas Nussbaumer also for the hw detection code.
+
+Rusty Wagner for VTI.

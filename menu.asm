@@ -107,7 +107,7 @@ StillShowMenu:
 	moveq		#20,d4			;increment
 
  ifd ti89
-	lea		LCD_MEM+30*22,a1		;the y of where my menu is in video memory
+	lea		LCD_MEM+30*40,a1		;the y of where my menu is in video memory
  endc
 
  ifd ti92plus
@@ -135,7 +135,7 @@ LeaveA1Alone:
 	move.l	ptr(pc),a0
 	add.l		#(NUMBER_OF_MATCHES+1)*4,a0	;pointer to the backup
 	lea		0(a1,d5),a3				;copy to alter
-	moveq		#58,d3
+	moveq		#40,d3
 	tst.w		d6
 	beq		LeavD3Alone
 	moveq		#52,d3
@@ -177,7 +177,7 @@ SkipBackup:
 
 ;---Sides and clear inner-----
 
-	moveq		#56,d3			;counter
+	moveq		#38,d3			;counter
 	tst.w		d6
 	beq		LeaveD3Alone2
 	moveq		#50,d3
@@ -215,7 +215,7 @@ DrawMostOfIt:
 ;----Now for the line dividing the title from the rest----
 
  ifd	ti89
-	lea	LCD_MEM+30*30,a0
+	lea	LCD_MEM+30*48,a0
  endc
 
  ifd	ti92plus		
@@ -276,7 +276,7 @@ NoTruncating:
  checkTrashing 'D'
 
  ifd ti89
-	move.w	#24,-(a7)			;cordnates of the title
+	move.w	#42,-(a7)			;cordnates of the title
  endc
 
  ifd ti92plus
@@ -327,7 +327,7 @@ NoRightArrow:
 	move.b	#'1',(a4)
 
  ifd ti89
-	move.w	#32,-(a7)	;y cordinate
+	move.w	#50,-(a7)	;y cordinate
  endc
 
  ifd ti92plus
@@ -364,7 +364,7 @@ DrawFunctionKeyLoop:
 	pea		upArrow(pc)
 
  ifd ti89
-	move.w	#32,-(a7)
+	move.w	#50,-(a7)
  endc
 
  ifd ti92plus

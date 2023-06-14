@@ -470,7 +470,7 @@ RemoveMenu:
 	beq		AllDone
 	moveq		#19,d3
 	moveq		#20,d2
-	moveq		#58,d0
+	moveq		#40,d0
 	move.w	mode(pc),d1
 	beq		LeaveAt58
 	moveq		#52,d0

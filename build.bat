@@ -11,5 +11,4 @@ del cmpltdat.89z
 .\makeprgm\makeprgm.exe cmpltdat
 del complete.o > nul
 del cmpltdat.o > nul
-.\ttppggen.exe complete.89z complete
 

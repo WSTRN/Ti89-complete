@@ -1,7 +1,7 @@
 ;copyright 2004 by Samuel Stearley
 
 
-NUMBER_OF_MATCHES		EQU	112	;max number of matches to find, it must be a multiple
+NUMBER_OF_MATCHES		EQU	70	;max number of matches to find, it must be a multiple
 						;  of 8.  It will give up to 14 pages of matches.
 
 NUMBER_OF_UNIT_MENUS	EQU	62	;(number of unit menus *2)-2, this number does include
@@ -573,7 +573,7 @@ ReDoMenu:
 	lea		listIsFull(pc),a0
 	tst.l		d0
 	sne		(a0)
-	and.w		#%111,d0
+	and.w		#%1111,d0
 ClearRest:
 	clr.l		(a3)+
 	dbra		d0,ClearRest

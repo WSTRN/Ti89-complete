@@ -117,7 +117,7 @@ Advances:
 ;----Display the menu---
 
 NoExternal
-	and.w		#%1111,d0
+	and.w		#%111,d0
 ZeroThem:
 	clr.l		(a3)+			;zero the rest of them
 	dbra		d0,ZeroThem

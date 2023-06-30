@@ -573,7 +573,7 @@ ReDoMenu:
 	lea		listIsFull(pc),a0
 	tst.l		d0
 	sne		(a0)
-	and.w		#%1111,d0
+	and.w		#%111,d0
 ClearRest:
 	clr.l		(a3)+
 	dbra		d0,ClearRest
